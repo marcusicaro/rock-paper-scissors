@@ -4,6 +4,7 @@
 var rock = "Rock";
 var paper = "Paper";
 var scissors = "Scissors";
+let score = 0;
 
 
 function getComputerChoice(){
@@ -29,16 +30,17 @@ function getComputerChoice(){
 //turn it into lower case
 //return "rock", "paper" or "scissor" based on what the player selected
 
-var playerInput = prompt("Please, select one of these: rock, paper or scissor.")
+var playerInput = prompt("Please, select one of these: rock, paper or scissor.");
+
 var lowerCasePlayerInput = playerInput.toLowerCase();
 
 //Create a function that takes both the player input and the computer choice
 //Evaluates them and return a result based on rock, paper, scissors rules
 
-function playerSelection(lowerCasePlayerInput, getComputerChoice){
+function playRound(lowerCasePlayerInput, getComputerChoice){
     
     if (lowerCasePlayerInput === 'rock' && getComputerChoice === 'Rock'){
-        return "Draw";
+        return "Draw";        
     }
 
     else if (lowerCasePlayerInput === 'rock' && getComputerChoice === 'Paper'){
@@ -46,11 +48,13 @@ function playerSelection(lowerCasePlayerInput, getComputerChoice){
     }
 
     else if (lowerCasePlayerInput === 'rock' && getComputerChoice === 'Scissors'){
-        return "You win";
+        score ++;
+        return "You win"; 
     }
 
     else if (lowerCasePlayerInput === 'paper' && getComputerChoice === 'Rock'){
-        return 'You win';
+        score ++;
+        return 'You win'; 
     }
 
     else if (lowerCasePlayerInput === 'paper' && getComputerChoice === 'Paper'){
@@ -66,6 +70,7 @@ function playerSelection(lowerCasePlayerInput, getComputerChoice){
     }
 
     else if (lowerCasePlayerInput === 'scissors' && getComputerChoice === 'Paper'){
+        score ++;
         return 'You win';
     }
 
@@ -78,6 +83,28 @@ function playerSelection(lowerCasePlayerInput, getComputerChoice){
     }
 }
 
-console.log(playerSelection(lowerCasePlayerInput, getComputerChoice()));
-console.log(getComputerChoice());
+console.log(playRound(lowerCasePlayerInput, getComputerChoice()));
+console.log('You won ' + score + ' rounds');
 
+
+
+//Write a new function called game()
+//Loop it 5 times
+//Call the playRound inside game()
+//Play 5 rounds by repeating playRound function 5 times
+//Keeps score and reports a winner or loser at the end 
+//Loop the playRound function inside game()
+
+function game(){
+
+    for (let i = 0; i < 4; i++)
+    {
+        playerInput = prompt("Please, select one of these: rock, paper or scissor.")
+        lowerCasePlayerInput;
+        console.log(playRound(lowerCasePlayerInput, getComputerChoice()));
+        console.log('You won ' + score + ' rounds');
+    }
+    
+}
+
+game();
